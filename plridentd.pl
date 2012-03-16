@@ -36,7 +36,7 @@ sub process_request
 		my $previous_alarm = alarm($timeout);
 
 		while (<STDIN>) {
-			if ($_ =~ m/^\s*([\d]{1,5}, [\d]{1,5})\s*$/aa) {
+			if ($_ =~ m/^\s*([\d]{1,5}\s*,\s*[\d]{1,5})\s*$/aa) {
 				print "$1 : USERID : UNIX : $reply\r\n";
 				last;
 			}
