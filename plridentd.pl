@@ -36,11 +36,16 @@ sub process_request
 		my $previous_alarm = alarm($timeout);
 
 		while (<STDIN>) {
-			if ($_ =~ m/^\s*([\d]{1,5}\s*,\s*[\d]{1,5})\s*$/aa) {
-				print "$1 : USERID : UNIX : $reply\r\n";
+			if ($_ =~ m/^\s*([\d]{1,5})\s*,\s*([\d]{1,5})\s*$/aa) {
+				if ($1 > (2**16)-1 || $2 > (2**16)-1) {
+					print "$1, $2 : ERROR : INVALID-PORT\r\n";
+				} else {
+					print "$1, $2 : USERID : UNIX : $reply\r\n";
+				}
 				last;
 			}
 		}
+
 		alarm($previous_alarm);
 	}
 }
