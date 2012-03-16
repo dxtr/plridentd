@@ -37,7 +37,7 @@ sub process_request
 
 		while (<STDIN>) {
 			if ($_ =~ m/^\s*([\d]{1,5})\s*,\s*([\d]{1,5})\s*$/aa) {
-				if ($1 > (2**16)-1 || $2 > (2**16)-1) {
+				if ($1 >= (2**16) || $2 >= (2**16)) {
 					print "$1, $2 : ERROR : INVALID-PORT\r\n";
 				} else {
 					print "$1, $2 : USERID : UNIX : $reply\r\n";
