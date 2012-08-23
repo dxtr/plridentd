@@ -36,7 +36,7 @@ sub process_request
 		my $previous_alarm = alarm($timeout);
 
 		while (<STDIN>) {
-			if ($_ =~ m/^\s*([\d]{1,5})\s*,\s*([\d]{1,5})\s*$/aa) {
+			if ($_ =~ m/^\s*([\d]{1,5})\s*,\s*([\d]{1,5})\s*$/) {
 				if ($1 >= (2**16) || $2 >= (2**16)) {
 					print "$1, $2 : ERROR : INVALID-PORT\r\n";
 				} else {
