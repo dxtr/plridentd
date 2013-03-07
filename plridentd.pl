@@ -20,7 +20,9 @@ __PACKAGE__->run(pid_file => '/var/run/plridentd.pid',
 	background => 1,
 	setsid => 1,
 	max_servers => 10,
-	host => "0.0.0.0"
+	ipv => '*', # Available values: 4, 6, *
+	# To listen on a specific address:
+	#host => "0.0.0.0"
 );
 
 ### Override subs

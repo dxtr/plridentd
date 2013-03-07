@@ -1,0 +1,6 @@
+plridentd
+---------
+Requires:
+ Net::Server::Fork (>= 2.005 preferrably)
+ Sys::Syslog
+
