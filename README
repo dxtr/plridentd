@@ -3,4 +3,5 @@ plridentd
 Requires:
  Net::Server::Fork (>= 2.005 preferrably)
  Sys::Syslog
+ IO::Socket::INET6 (For IPv6 support)
 
